@@ -18,7 +18,7 @@ Commands:
     diff            FASTQ Shuffling Tool For Sanity Check in Hi-C Differential Contact Analysis
 Run panchip <command> -h for help on a specific command.
 
-PanChIP: Pan-ChIP-seq Analysis of Peak Sets
+HiCShuffle: FASTQ Shuffling Tool For Sanity Check in Hi-C Differential Contact Analysis
 
 positional arguments:
   command     Subcommand to run
@@ -28,21 +28,19 @@ optional arguments:
   --version   show program's version number and exit
 ```
 
-### panchip diff [-h] [-t THREADS] [-r REPEATS] library_directory input_directory output_directory
+### hicshuffle diff [-h] query_path_1 query_path_2 reference_path_1 reference_path_2 output_directory
 
 ```shell
 
-Analysis of a list peat sets
+FASTQ Shuffling Tool For Sanity Check in Hi-C Differential Contact Analysis
 
 positional arguments:
-  library_directory  Directory wherein PanChIP library was stored.
-  input_directory    Input directory wherein peak sets in the format of .bed
-                     files are located.
-                     (.bed6 format with numeric scores in 5th column required)
-  output_directory   Output directory wherein output files will be stored.
+  query_path_1      Path for READ1 of Query FASTQ
+  query_path_2      Path for READ2 of Query FASTQ
+  reference_path_1  Path for READ1 of Reference FASTQ
+  reference_path_2  Path for READ2 of Reference FASTQ
+  output_directory  Output Directory... HiCShuffle Will Generate Output Directory If Not Existent
 
 optional arguments:
   -h, --help         show this help message and exit
-  -t THREADS         Number of threads to use. (default: 1)
-  -r REPEATS         Number of repeats to perform. (default: 1)
 ```
