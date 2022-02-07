@@ -25,6 +25,7 @@ setup(
   download_url = 'https://github.com/hanjunlee21/HiCShuffle/archive/refs/tags/v.' + __version__ + '.tar.gz',
   keywords = ['hi-c', 'qc'],   
   install_requires=[
+          'numpy',
           'argparse',
       ],
   scripts=['bin/hicshuffle'],
