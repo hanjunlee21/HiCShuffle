@@ -3,9 +3,9 @@
 import os
 import sys
 import math
-import numpy as np
 import argparse
 import subprocess
+import numpy as np
 import HiCShuffle.commands as commands
 from HiCShuffle.version import __version__
 
