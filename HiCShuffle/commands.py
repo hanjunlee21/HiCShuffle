@@ -1,5 +1,6 @@
 import argparse
 import textwrap
+import math
 import sys
 
 def panchip_parser():
@@ -27,30 +28,31 @@ def diff_parser():
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
         prog='panchip diff'
     )
-
+    
     parser.add_argument(
-        'library_directory',
+        'query_path_1',
         type=str,
-        help='Directory wherein PanChIP library will be stored. > 4.2 GB of storage required.')
+        help='Path for READ1 of Query FASTQ')
+        
+    parser.add_argument(
+        'query_path_2',
+        type=str,
+        help='Path for READ2 of Query FASTQ')
+    
+    parser.add_argument(
+        'reference_path_1',
+        type=str,
+        help='Path for READ1 of Reference FASTQ')
+    
+    parser.add_argument(
+        'reference_path_2',
+        type=str,
+        help='Path for READ2 of Reference FASTQ')
     
     parser.add_argument(
         'output_directory',
         type=str,
-        help='Output directory wherein output files will be stored.')
-    
-    parser.add_argument(
-        '-t',
-        dest='threads',
-        type=int,
-        default=1,
-        help='Number of threads to use.')
-    
-    parser.add_argument(
-        '-r',
-        dest='repeats',
-        type=int,
-        default=1,
-        help='Number of repeats to perform.')
+        help='Output Directory... HiCShuffle Will Generate Output Directory If Not Existent')
 
     return parser
       
