@@ -15,8 +15,7 @@ pip install hicshuffle
 
 ```shell
 Commands:
-    init            Initialization of the PanChIP library
-    analysis        Analysis of a list peat sets
+    diff            FASTQ Shuffling Tool For Sanity Check in Hi-C Differential Contact Analysis
 Run panchip <command> -h for help on a specific command.
 
 PanChIP: Pan-ChIP-seq Analysis of Peak Sets
@@ -29,21 +28,7 @@ optional arguments:
   --version   show program's version number and exit
 ```
 
-### panchip init [-h] library_directory
-
-```shell
-
-Initialization of the PanChIP library
-
-positional arguments:
-  library_directory  Directory wherein PanChIP library will be stored. > 4.2
-                     GB of storage required.
-
-optional arguments:
-  -h, --help         show this help message and exit
-```
-
-### panchip analysis [-h] [-t THREADS] [-r REPEATS] library_directory input_directory output_directory
+### panchip diff [-h] [-t THREADS] [-r REPEATS] library_directory input_directory output_directory
 
 ```shell
 
