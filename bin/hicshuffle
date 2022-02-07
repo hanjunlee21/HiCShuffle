@@ -3,6 +3,7 @@
 import os
 import sys
 import math
+import numpy as np
 import argparse
 import subprocess
 import HiCShuffle.commands as commands
@@ -63,24 +64,14 @@ class Hicshuffle(object):
         subprocess.call(['sh', output_dir + '/hicshuffle_order.sh'])
         subprocess.call(['rm', output_dir + '/hicshuffle_order.sh'])
         
-        orderfile = open(output_dir + '/hicshuffle_order.txt', 'r')
-        orderfilecontent = orderfile.readlines()
-        totalcount = 0
-        for orderfileline in orderfilecontent:
-            for i in orderfileline:
-                if i.isdigit() == True:
-                    totalcount += int(i)
+        totalcount = np.loadtxt(output_dir + '/hicshuffle_order.txt')
         splitcount = str(int(math.floor(totalcount/8)*4))
-        print(totalcount)
-        print(type(totalcount))
-        print(splitcount)
-        print(type(splitcount))
         
         f = open(output_dir + '/hicshuffle_diff.sh','w+')
         f.write('#!/bin/bash\npaste -d \' \' ' + output_dir + '/hicshuffle.order ' + output_dir + '/output_1.fq | sort -k1n | cut -d \' \' -f2- > ' + output_dir + '/output_shuf_1.fq &\npaste -d \' \' ' + output_dir + '/hicshuffle.order ' + output_dir + '/output_2.fq | sort -k1n | cut -d \' \' -f2- > ' + output_dir + '/output_shuf_2.fq')
         f.close()
         subprocess.call(['sh', output_dir + '/hicshuffle_diff.sh'])
-        subprocess.call(['rm', output_dir + '/hicshuffle_rm.sh'])
+        subprocess.call(['rm', output_dir + '/hicshuffle_diff.sh'])
         subprocess.call(['rm', output_dir + '/output_1.fq'])
         subprocess.call(['rm', output_dir + '/output_2.fq'])
         
