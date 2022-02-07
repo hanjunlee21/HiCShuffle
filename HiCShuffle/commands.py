@@ -2,6 +2,7 @@ import argparse
 import textwrap
 import math
 import sys
+import numpy as py
 
 def hicshuffle_parser():
     usage = '''\
