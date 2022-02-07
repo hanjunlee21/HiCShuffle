@@ -61,6 +61,7 @@ class Hicshuffle(object):
         f.write('#!/bin/bash\nconcatenate() {\ncat $1 $2 > $3\n}\nconcatenate "' + reference_1 + '" "' + query_1 + '" "' + output_dir + '/output_1.fq" &\nconcatenate "' + reference_2 + '" "' + query_2 + '" "' + output_dir + '/output_2.fq"\nwait\ncount=$(grep -c \'^\' "' + output_dir + '/output_1.fq")\necho $count > ' + output_dir + '/hicshuffle_order.txt\nseq -w 4 4 $count | shuf | awk \'{printf "%0\'${#count}\'d\\n%0\'${#count}\'d\\n%0\'${#count}\'d\\n%0\'${#count}\'d\\n",$1-3,$1-2,$1-1,$1}\' > "' + output_dir + '/hicshuffle.order"\n')
         f.close()
         subprocess.call(['sh', output_dir + '/hicshuffle_order.sh'])
+        subprocess.call(['rm', output_dir + '/hicshuffle_order.sh'])
         
         orderfile = open(output_dir + '/hicshuffle_order.txt', 'r')
         orderfilecontent = orderfile.readlines()
@@ -69,17 +70,29 @@ class Hicshuffle(object):
             for i in orderfileline:
                 if i.isdigit() == True:
                     totalcount += int(i)
-        splitcount = str(math.floor(totalcount/8)*4)
+        splitcount = str(int(math.floor(totalcount/8)*4))
+        print(totalcount)
+        print(type(totalcount))
+        print(splitcount)
+        print(type(splitcount))
         
         f = open(output_dir + '/hicshuffle_diff.sh','w+')
         f.write('#!/bin/bash\npaste -d \' \' ' + output_dir + '/hicshuffle.order ' + output_dir + '/output_1.fq | sort -k1n | cut -d \' \' -f2- > ' + output_dir + '/output_shuf_1.fq &\npaste -d \' \' ' + output_dir + '/hicshuffle.order ' + output_dir + '/output_2.fq | sort -k1n | cut -d \' \' -f2- > ' + output_dir + '/output_shuf_2.fq')
         f.close()
         subprocess.call(['sh', output_dir + '/hicshuffle_diff.sh'])
+        subprocess.call(['rm', output_dir + '/hicshuffle_rm.sh'])
+        subprocess.call(['rm', output_dir + '/output_1.fq'])
+        subprocess.call(['rm', output_dir + '/output_2.fq'])
         
         f = open(output_dir + '/hicshuffle_split.sh','w+')
         f.write('#!/bin/bash\nhead -n ' + splitcount + ' ' + output_dir + '/output_1.fq | gzip > ' + output_dir + '/shuffled_head_1.fq.gz &\ntail -n ' + splitcount + ' ' + output_dir + '/output_1.fq | gzip > ' + output_dir + '/shuffled_tail_1.fq.gz &\nhead -n ' + splitcount + ' ' + output_dir + '/output_2.fq | gzip > ' + output_dir + '/shuffled_head_2.fq.gz &\ntail -n ' + splitcount + ' ' + output_dir + '/output_2.fq | gzip > ' + output_dir + '/shuffled_tail_2.fq.gz\nwait\n')
         f.close()
         subprocess.call(['sh', output_dir + '/hicshuffle_split.sh'])
+        
+        subprocess.call(['rm', output_dir + '/hicshuffle_order.txt'])
+        subprocess.call(['rm', output_dir + '/hicshuffle.order'])
+        subprocess.call(['rm', output_dir + '/output_shuf_1.fq'])
+        subprocess.call(['rm', output_dir + '/output_shuf_2.fq'])
         
 if __name__ == '__main__':
     Hicshuffle()
