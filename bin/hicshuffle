@@ -82,4 +82,4 @@ class Hicshuffle(object):
         subprocess.call(['sh', output_dir + '/hicshuffle_split.sh'])
         
 if __name__ == '__main__':
-    HiCShuffle()
+    Hicshuffle()
