@@ -32,22 +32,22 @@ def diff_parser():
     parser.add_argument(
         'query_path_1',
         type=str,
-        help='Path for READ1 of Query FASTQ')
+        help='Path for READ1 of GZ-Compressed or Uncompressed Query FASTQ')
         
     parser.add_argument(
         'query_path_2',
         type=str,
-        help='Path for READ2 of Query FASTQ')
+        help='Path for READ2 of GZ-Compressed or Uncompressed Query FASTQ')
     
     parser.add_argument(
         'reference_path_1',
         type=str,
-        help='Path for READ1 of Reference FASTQ')
+        help='Path for READ1 of GZ-Compressed or Uncompressed Reference FASTQ')
     
     parser.add_argument(
         'reference_path_2',
         type=str,
-        help='Path for READ2 of Reference FASTQ')
+        help='Path for READ2 of GZ-Compressed or Uncompressed Reference FASTQ')
     
     parser.add_argument(
         'output_directory',
