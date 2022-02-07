@@ -42,16 +42,16 @@ class Hicshuffle(object):
         query_2 = os.path.abspath(args.query_path_2)
         
         if reference_1.lower().endswith('.gz'):
-            subprocess.call(['gunzip', '-c', reference_1])
+            subprocess.call(['gunzip', '-k', reference_1])
             reference_1 = reference_1[:-3]
         if reference_2.lower().endswith('.gz'):
-            subprocess.call(['gunzip', '-c', reference_2])
+            subprocess.call(['gunzip', '-k', reference_2])
             reference_2 = reference_2[:-3]
         if query_1.lower().endswith('.gz'):
-            subprocess.call(['gunzip', '-c', query_1])
+            subprocess.call(['gunzip', '-k', query_1])
             query_1 = query_1[:-3]
         if query_2.lower().endswith('.gz'):
-            subprocess.call(['gunzip', '-c', query_2])
+            subprocess.call(['gunzip', '-k', query_2])
             query_2 = query_2[:-3]
         
         output_dir = os.path.abspath(args.output_directory)
