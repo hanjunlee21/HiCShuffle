@@ -8,8 +8,6 @@ import subprocess
 import HiCShuffle.commands as commands
 from HiCShuffle.version import __version__
 
-lib_name = 'v.1.0'
-
 class Hicshuffle(object):
 
     def __init__(self):
