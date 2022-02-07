@@ -7,6 +7,8 @@
 
 **FASTQ Shuffling Tool For Sanity Check in Hi-C Differential Contact Analysis**
 
+![HiCShuffle](https://hanjun.group/wp-content/uploads/2022/02/Extended-Data-Figure-X-01.png)
+
 ## Installation
 ```shell
 pip install hicshuffle
