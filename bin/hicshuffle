@@ -65,8 +65,8 @@ class Hicshuffle(object):
         orderfile = open(output_dir + '/hicshuffle_order.txt', 'r')
         orderfilecontent = orderfile.readlines()
         totalcount = 0
-        for line in content:
-            for i in line:
+        for orderfileline in orderfilecontent:
+            for i in orderfileline:
                 if i.isdigit() == True:
                     totalcount += int(i)
         splitcount = math.floor(totalcount/8)*4
