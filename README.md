@@ -21,7 +21,7 @@ pip install hicshuffle
 ```shell
 Commands:
     diff            FASTQ Shuffling Tool For Sanity Check in Hi-C Differential Contact Analysis
-Run panchip <command> -h for help on a specific command.
+Run hicshuffle <command> -h for help on a specific command.
 
 HiCShuffle: FASTQ Shuffling Tool For Sanity Check in Hi-C Differential Contact Analysis
 
