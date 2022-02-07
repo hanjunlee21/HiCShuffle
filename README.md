@@ -38,10 +38,10 @@ optional arguments:
 FASTQ Shuffling Tool For Sanity Check in Hi-C Differential Contact Analysis
 
 positional arguments:
-  query_path_1      Path for READ1 of Query FASTQ
-  query_path_2      Path for READ2 of Query FASTQ
-  reference_path_1  Path for READ1 of Reference FASTQ
-  reference_path_2  Path for READ2 of Reference FASTQ
+  query_path_1      Path for READ1 of GZ-Compressed or Uncompressed Query FASTQ
+  query_path_2      Path for READ2 of GZ-Compressed or Uncompressed Query FASTQ
+  reference_path_1  Path for READ1 of GZ-Compressed or Uncompressed Reference FASTQ
+  reference_path_2  Path for READ2 of GZ-Compressed or Uncompressed Reference FASTQ
   output_directory  Output Directory... HiCShuffle Will Generate Output Directory If Not Existent
 
 optional arguments:
