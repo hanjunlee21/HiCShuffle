@@ -69,7 +69,7 @@ class Hicshuffle(object):
             for i in orderfileline:
                 if i.isdigit() == True:
                     totalcount += int(i)
-        splitcount = math.floor(totalcount/8)*4
+        splitcount = str(math.floor(totalcount/8)*4)
         
         f = open(output_dir + '/hicshuffle_diff.sh','w+')
         f.write('#!/bin/bash\npaste -d \' \' ' + output_dir + '/hicshuffle.order ' + output_dir + '/output_1.fq | sort -k1n | cut -d \' \' -f2- > ' + output_dir + '/output_shuf_1.fq &\npaste -d \' \' ' + output_dir + '/hicshuffle.order ' + output_dir + '/output_2.fq | sort -k1n | cut -d \' \' -f2- > ' + output_dir + '/output_shuf_2.fq')
