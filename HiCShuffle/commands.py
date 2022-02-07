@@ -3,12 +3,12 @@ import textwrap
 import math
 import sys
 
-def panchip_parser():
+def hicshuffle_parser():
     usage = '''\
-        panchip <command> [options]
+        hicshuffle <command> [options]
         Commands:
             diff            FASTQ Shuffling Tool For Sanity Check in Hi-C Differential Contact Analysis
-        Run panchip <command> -h for help on a specific command.
+        Run hicshuffle <command> -h for help on a specific command.
         '''
     parser = argparse.ArgumentParser(
         description='HiCShuffle: FASTQ Shuffling Tool For Sanity Check in Hi-C Differential Contact Analysis',
@@ -26,7 +26,7 @@ def diff_parser():
     parser = MyParser(
         description='FASTQ Shuffling Tool For Sanity Check in Hi-C Differential Contact Analysis',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
-        prog='panchip diff'
+        prog='hicshuffle diff'
     )
     
     parser.add_argument(
