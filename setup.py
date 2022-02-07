@@ -16,7 +16,7 @@ setup(
   packages = ['HiCShuffle'],
   version = __version__,
   license='MIT',
-  description = 'Pan-ChIP-seq Analysis of Peak Sets',
+  description = 'FASTQ Shuffling Tool For Sanity Check in Hi-C Differential Contact Analysis',
   long_description=read_file('README.md'),
   long_description_content_type='text/markdown',
   author = 'Hanjun Lee',
