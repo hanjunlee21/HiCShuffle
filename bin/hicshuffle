@@ -76,10 +76,10 @@ class Hicshuffle(object):
         subprocess.call(['rm', output_dir + '/output_2.fq'])
         
         f = open(output_dir + '/hicshuffle_split.sh','w+')
-        f.write('#!/bin/bash\nhead -n ' + splitcount + ' ' + output_dir + '/output_1.fq | gzip > ' + output_dir + '/shuffled_head_1.fq.gz &\ntail -n ' + splitcount + ' ' + output_dir + '/output_1.fq | gzip > ' + output_dir + '/shuffled_tail_1.fq.gz &\nhead -n ' + splitcount + ' ' + output_dir + '/output_2.fq | gzip > ' + output_dir + '/shuffled_head_2.fq.gz &\ntail -n ' + splitcount + ' ' + output_dir + '/output_2.fq | gzip > ' + output_dir + '/shuffled_tail_2.fq.gz\nwait\n')
+        f.write('#!/bin/bash\nhead -n ' + splitcount + ' ' + output_dir + '/output_shuf_1.fq | gzip > ' + output_dir + '/shuffled_head_1.fq.gz &\ntail -n ' + splitcount + ' ' + output_dir + '/output_shuf_1.fq | gzip > ' + output_dir + '/shuffled_tail_1.fq.gz &\nhead -n ' + splitcount + ' ' + output_dir + '/output_shuf_2.fq | gzip > ' + output_dir + '/shuffled_head_2.fq.gz &\ntail -n ' + splitcount + ' ' + output_dir + '/output_shuf_2.fq | gzip > ' + output_dir + '/shuffled_tail_2.fq.gz\nwait\n')
         f.close()
         subprocess.call(['sh', output_dir + '/hicshuffle_split.sh'])
-        
+        subprocess.call(['rm', output_dir + '/hicshuffle_split.sh'])
         subprocess.call(['rm', output_dir + '/hicshuffle_order.txt'])
         subprocess.call(['rm', output_dir + '/hicshuffle.order'])
         subprocess.call(['rm', output_dir + '/output_shuf_1.fq'])
