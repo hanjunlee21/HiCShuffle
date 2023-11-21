@@ -3,7 +3,6 @@
 [![PyPI version](https://badge.fury.io/py/HiCShuffle.svg)](https://badge.fury.io/py/HiCShuffle)
 [![DOI:10.1101/2021.09.23.459925](https://zenodo.org/badge/DOI/10.1101/2021.09.23.459925.svg)](https://doi.org/10.1101/2021.09.23.459925)
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
-[![Linux](https://svgshare.com/i/Zhy.svg)](https://svgshare.com/i/Zhy.svg)
 
 **FASTQ Shuffling Tool For Sanity Check in Hi-C Differential Contact Analysis**
 
